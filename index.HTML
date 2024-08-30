@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/font/fontawesome-free-6.5.2-web/css/all.css">
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <title>Music-player</title>
+    <link rel="icon" href="./assets/img/icon_head.svg">
+</head>
+<body>
+    <div class="app">
+        <audio class="audio_main" music_id="1">
+            <source src="./assets/audio/Hay_trao_cho_anh.mp3" type="audio/mpeg">
+        </audio>
+        <div class="audio_head">
+            <div class="audio_current_play">
+                <div class="audio_head_icon_box">
+                    <img class="audio_head_img" src="./assets/img/music_img_1.jpg" alt="">
+                </div>
+                <div class="audio_timer">
+                    <span class="minute_current_time">0</span>:<span class="second_current_time">00</span>
+                </div>
+                <div class="audio_head_name"></div>
+                <div class="audio_head_produce audio_head_name"></div>
+            </div>
+            <div class="audio_list_music">
+                <div class="audio_list_box">
+                </div>
+            </div>
+        </div>
+        <div class="audio_control">
+            <div class="audio_btn audio_pause"><i class="fa-solid fa-circle-play audio_icon_pause"></i><i class="fa-regular fa-circle-pause audio_icon_play audio_disnone"></i></div>
+            <div class="audio_btn audio_forward"><i class="fa-solid fa-forward audio_icon"></i></div>
+            <div class="audio_linetime"><div class="audio_linecurrent"><div onmousedown="return false" class="audio_line_cir"></div></div></div>
+            <div class="audio_btn audio_btn_select audio_shuffle"><i class="fa-solid fa-shuffle audio_icon"></i></div>
+            <div class="audio_btn audio_btn_select audio_repeat"><i class="fa-solid fa-repeat audio_icon"></i></div>
+            <div class="audio_btn audio_volume">
+                <input class="audio_volume_range" value="100" value_before_muted="0" type="range" step="1" min="0" max="100">
+                <span class="audio_icon_volume"><i class="fa-solid fa-volume-high audio_icon"></i></span>
+            </div>
+        </div>
+        <div class="coppyright"><i class="fa-regular fa-copyright"></i> No Coppyright HMC27</div>
+    </div>
+    <div class="bg_load"><img class="bg_load_img" src="./assets/img/loading.gif"></img></div>
+    <script type="module" src="./assets/js/main.js"></script>
+</body>
+</html>
