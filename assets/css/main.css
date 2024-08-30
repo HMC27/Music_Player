@@ -274,6 +274,9 @@ html {
 .audio_volume:hover .audio_volume_range::-webkit-slider-thumb {
     opacity: 1;
 }
+.audio_volume_icon {
+    width: 20px;
+}
 .coppyright {
     color: var(--white-color);
     font-size: 12px;
