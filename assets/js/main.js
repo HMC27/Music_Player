@@ -52,7 +52,7 @@ var List_music = [
     },
     {
         name:"Thủ Đô Cyper",
-        link:"./assets/audio/thu_do_cyper.mp3",
+        link:"./assets/audio/thu_do_Cyper.mp3",
         product:"Rapital",
         music_id:9
     },
@@ -67,8 +67,9 @@ var List_music = [
 
 function main() {
     setTimeout(()=>{
-        $(".bg_load").style.display = "none"
         loadConfig()
+        renderBoxToasts()
+        $(".bg_load").style.display = "none"
         render_list_music()
         addEvent()
         render_display(List_music[0])
@@ -357,4 +358,50 @@ function scrollToTop() {
         behavior: "smooth",
         block: "end"
     })
+}
+
+// Toasts message
+
+function renderBoxToasts() {
+    document.querySelector("body").innerHTML += `
+    <div class="toasts__list">
+    </div>
+    `
+}
+
+function callToasts({
+    name="",
+    content="",
+    type="success",
+    duration = 3000
+}) {
+    var toast_main = document.querySelector(".toasts__list")
+    var toast = document.createElement("div")
+    toast.classList.add("toasts__items",`toast__items--${type}`)
+    toast.style.animation = `toastsIn .3s linear , toastsOut .5s ${duration}ms linear forwards`
+    const icons = {
+        success: "fas fa-check-circle",
+        info: "fas fa-info-circle",
+        warning: "fas fa-exclamation-circle",
+        error: "fas fa-exclamation-circle"
+    }
+    var iconE = icons[type]
+    toast.innerHTML = `
+    <div class="toasts__items__icon"><i class="${iconE}"></i></div>
+    <div class="toasts__items__body">
+    <h3 class="toasts__items__name">${name}</h3>
+        <div class="toasts__items__content">${content}</div>
+        </div>
+    <div class="toasts__items__closeBtn"><i class="toasts__items__closeBtn__icon fa-solid fa-xmark"></i></div>
+        `
+    toast_main.appendChild(toast)
+    var removeAuto = setTimeout(function() {
+        toast_main.removeChild(toast)
+    },duration+1200)
+    toast.onclick = function(e) {
+        if (e.target.closest(".toasts__items__closeBtn")) {
+            toast_main.removeChild(e.target.closest(".toasts__items"))
+            clearTimeout(removeAuto)
+        }
+    }
 }
