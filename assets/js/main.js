@@ -52,7 +52,7 @@ var List_music = [
     },
     {
         name:"Thủ Đô Cyper",
-        link:"./assets/audio/thu_do_Cyper.mp3",
+        link:"./assets/audio/thu_do_cyper.mp3",
         product:"Rapital",
         music_id:9
     },
